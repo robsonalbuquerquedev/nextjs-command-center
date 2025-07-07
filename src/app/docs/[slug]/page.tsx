@@ -1,11 +1,14 @@
 // app/docs/[slug]/page.tsx
 import CodeBlock from "@/components/CodeBlock";
 
-interface DocsTopicPageProps {
-    params: {
-        slug: string;
-    };
-}
+import { type Metadata } from "next";
+
+type PageProps = {
+  params: {
+    slug: string;
+  };
+};
+
 
 // Lista de comandos para instalação do ambiente Next.js
 const installCommands = `
@@ -46,7 +49,7 @@ const topicContent: Record<string, { title: string; content: string }> = {
     },
 };
 
-export default function DocsTopicPage({ params }: DocsTopicPageProps) {
+export default function DocsTopicPage({ params }: PageProps) {
     const { slug } = params;
 
     const topic = topicContent[slug];
