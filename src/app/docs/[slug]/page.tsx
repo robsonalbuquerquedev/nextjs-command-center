@@ -32,7 +32,7 @@ npm install react-chartjs-2
 `.trim();
 
 // ✅ 2. Função que retorna o conteúdo da página
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: { params: Params }) {
     const { slug } = params;
 
     const topic = topicContent[slug];
