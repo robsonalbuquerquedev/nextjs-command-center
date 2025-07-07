@@ -4,8 +4,6 @@ import { useParams } from "next/navigation";
 import CodeBlock from "@/components/CodeBlock";
 import { topicContent } from "../docs-data";
 
-type Params = { slug: string };
-
 // Lista de comandos para instalação do ambiente Next.js
 const installCommands = `
 npx create-next-app@latest .

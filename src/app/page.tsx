@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { FaReact } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { format } from "date-fns";
 
 export default function Home() {
-  const [name, setName] = useState("Robson");
+  const [name] = useState("Robson");
   const [joke, setJoke] = useState("");
   const router = useRouter();
 
@@ -18,7 +18,7 @@ export default function Home() {
       const res = await axios.get("https://official-joke-api.appspot.com/random_joke");
       setJoke(`${res.data.setup} 🤔 ${res.data.punchline}`);
       toast("Nova piada carregada!");
-    } catch (error) {
+    } catch {
       toast.error("Erro ao buscar piada 😢");
     }
   };
