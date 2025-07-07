@@ -1,20 +1,10 @@
 // app/docs/[slug]/page.tsx
+"use client";
+import { useParams } from "next/navigation";
 import CodeBlock from "@/components/CodeBlock";
-import { Metadata } from "next"
 import { topicContent } from "../docs-data";
 
 type Params = { slug: string };
-
-// ✅ Metadados dinâmicos
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const topic = topicContent[params.slug];
-  return {
-    title: topic ? `Documentação: ${topic.title}` : "Tópico não encontrado",
-    description: topic
-      ? `Saiba mais sobre ${topic.title}, conceito essencial no ecossistema React.`
-      : "Esta página de documentação não existe.",
-  };
-}
 
 // Lista de comandos para instalação do ambiente Next.js
 const installCommands = `
@@ -31,11 +21,11 @@ npm install chart.js
 npm install react-chartjs-2
 `.trim();
 
-// ✅ 2. Função que retorna o conteúdo da página
-export default function Page({ params }: { params: { slug: string } }) {
-    const { slug } = params;
+export default function Page() {
+    const params = useParams();
+    const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? "";
 
-    const topic = topicContent[slug];
+    const topic = topicContent[slug as keyof typeof topicContent];
 
     if (!topic) {
         return (
