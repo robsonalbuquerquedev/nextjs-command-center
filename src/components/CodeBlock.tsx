@@ -31,7 +31,7 @@ export default function CodeBlock({ language, code }: CodeBlockProps) {
         <div className="relative bg-[#2d2d2d] text-white rounded-lg overflow-hidden mb-4">
             <button
                 onClick={handleCopy}
-                className="absolute top-2 right-2 text-xs text-white bg-gray-700 hover:bg-gray-600 px-2 py-1 rounded flex items-center gap-1"
+                className="absolute top-2 right-2 text-xs text-white bg-gray-700 hover:bg-gray-600 px-2 py-1 rounded flex items-center gap-1 cursor-pointer"
             >
                 {copied ? <FaCheck className="text-green-400" /> : <FaCopy />}
                 {copied ? "Copiado!" : "Copiar"}
