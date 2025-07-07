@@ -1,6 +1,20 @@
 // app/docs/[slug]/page.tsx
 import CodeBlock from "@/components/CodeBlock";
 import { Metadata } from "next"
+import { topicContent } from "../docs-data";
+
+type Params = { slug: string };
+
+// ✅ Metadados dinâmicos
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const topic = topicContent[params.slug];
+  return {
+    title: topic ? `Documentação: ${topic.title}` : "Tópico não encontrado",
+    description: topic
+      ? `Saiba mais sobre ${topic.title}, conceito essencial no ecossistema React.`
+      : "Esta página de documentação não existe.",
+  };
+}
 
 // Lista de comandos para instalação do ambiente Next.js
 const installCommands = `
@@ -16,41 +30,6 @@ npm install framer-motion
 npm install chart.js
 npm install react-chartjs-2
 `.trim();
-
-// Tópicos estáticos com título e descrição básica
-const topicContent: Record<string, { title: string; content: string }> = {
-    react: {
-        title: "React",
-        content:
-            "React é uma biblioteca JavaScript para construir interfaces de usuário reativas e componíveis.",
-    },
-    nextjs: {
-        title: "Next.js",
-        content:
-            "Next.js é um framework React completo para criação de aplicações web modernas com SSR, API, e muito mais.",
-    },
-    axios: {
-        title: "Axios",
-        content:
-            "Axios é uma biblioteca para fazer requisições HTTP com suporte a interceptadores, promessas e tratamento de erros.",
-    },
-    router: {
-        title: "Next Router",
-        content:
-            "O roteador do Next.js permite navegação programada, rotas dinâmicas, rotas aninhadas e muito mais.",
-    },
-};
-
-// ✅ 1. Função que retorna os metadados dinamicamente
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-    const topic = topicContent[params.slug];
-    return {
-        title: topic ? `Documentação: ${topic.title}` : "Tópico não encontrado",
-        description: topic
-            ? `Saiba mais sobre ${topic.title}, conceito essencial no ecossistema React.`
-            : "Esta página de documentação não existe.",
-    };
-}
 
 // ✅ 2. Função que retorna o conteúdo da página
 export default async function Page({ params }: { params: { slug: string } }) {
