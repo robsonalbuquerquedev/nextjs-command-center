@@ -1,5 +1,6 @@
 // app/docs/[slug]/page.tsx
 import CodeBlock from "@/components/CodeBlock";
+import { Metadata } from "next"
 
 // Lista de comandos para instalação do ambiente Next.js
 const installCommands = `
@@ -40,7 +41,19 @@ const topicContent: Record<string, { title: string; content: string }> = {
     },
 };
 
-export default async function DocsTopicPage({ params }: { params: { slug: string } }) {
+// ✅ 1. Função que retorna os metadados dinamicamente
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+    const topic = topicContent[params.slug];
+    return {
+        title: topic ? `Documentação: ${topic.title}` : "Tópico não encontrado",
+        description: topic
+            ? `Saiba mais sobre ${topic.title}, conceito essencial no ecossistema React.`
+            : "Esta página de documentação não existe.",
+    };
+}
+
+// ✅ 2. Função que retorna o conteúdo da página
+export default async function Page({ params }: { params: { slug: string } }) {
     const { slug } = params;
 
     const topic = topicContent[slug];
