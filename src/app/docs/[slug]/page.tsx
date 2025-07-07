@@ -6,7 +6,7 @@ import { topicContent } from "../docs-data";
 type Params = { slug: string };
 
 // ✅ Metadados dinâmicos
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const topic = topicContent[params.slug];
   return {
     title: topic ? `Documentação: ${topic.title}` : "Tópico não encontrado",
@@ -32,7 +32,7 @@ npm install react-chartjs-2
 `.trim();
 
 // ✅ 2. Função que retorna o conteúdo da página
-export default function Page({ params }: { params: Params }) {
+export default function Page({ params }: { params: { slug: string } }) {
     const { slug } = params;
 
     const topic = topicContent[slug];
