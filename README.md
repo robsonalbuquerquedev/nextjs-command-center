@@ -1,37 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Command Center
 
-## Getting Started
+Bem-vindo ao **Next.js Command Center**! 🚀
 
-First, run the development server:
+Este projeto é um painel interativo e organizado feito em Next.js para ajudar desenvolvedores a aprender, testar e aplicar os comandos e recursos mais importantes do framework Next.js, além de integrar bibliotecas populares do ecossistema React.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📋 O que tem aqui?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 📄 Páginas dinâmicas para explorar tópicos como React, Next.js, Axios, roteamento e muito mais.
+- 💻 Blocos de código com destaque de sintaxe e botão de copiar, para facilitar a vida do dev.
+- 🔥 Uso das bibliotecas `react-hot-toast` para notificações, `react-icons` para ícones, `axios` para requisições HTTP e `prismjs` para o destaque de código.
+- 📅 Manipulação de datas com `date-fns`.
+- ⚙️ Estrutura moderna usando o app router do Next.js, hooks e componentes funcionais.
+- 🎨 Suporte a animações com `framer-motion` (opcional).
+- 🧩 Exemplo prático de paginação e navegação com rotas dinâmicas.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Como usar?
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone o repositório:
 
-## Learn More
+   ```bash
+   git clone https://github.com/robsonalbuquerquedev/nextjs-command-center.git
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Instale as dependências:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Rode o projeto localmente:
 
-## Deploy on Vercel
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Abra http://localhost:3000 no navegador para explorar o painel.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# nextjs-command-center
+## 📦 Bibliotecas principais instaladas
+
+- next e react — o core do framework e da biblioteca UI.
+
+- react-icons — ícones prontos para usar.
+
+- react-hot-toast — notificações simples e elegantes.
+
+- axios — requisições HTTP.
+
+- date-fns — manipulação de datas.
+
+- prismjs — destaque de sintaxe para blocos de código.
+
+- framer-motion — animações (opcional).
+
+## 🧠 Por que usar este projeto?
+
+Se você está começando com Next.js ou quer ter um ambiente organizado para testar comandos, aprender boas práticas e visualizar exemplos práticos, este painel é para você.
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.
+
+## 📄 Licença
+
+[MIT License](LICENSE) 
+
+
+---
+
+© Robson Albuquerque
